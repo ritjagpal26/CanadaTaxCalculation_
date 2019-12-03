@@ -50,10 +50,10 @@ public class ShowData extends AppCompatActivity {
         double temprrsp = craCustomer.rrspAmount(craCustomer.grossIncome);
 
 
-        double tempttti = craCustomer.total_taxable_amount(temprrsp,tempEi,tempcpp);
+        double tempttti = craCustomer.total_taxable_amount(craCustomer.maxrssp,tempEi,tempcpp);
         double temtt = craCustomer.totaltaxammount(craCustomer.provincialATx(tempttti),craCustomer.fedraltax(tempttti));
         getFt.setText(String.valueOf(Float.valueOf(craCustomer.fedraltax(tempttti))));
-        getPt.setText(String.valueOf(Float.valueOf(craCustomer.provincialATx(tempttti))));
+        getPt.setText(String.valueOf(Float.valueOf((float) craCustomer.provincialATx(tempttti))));
         getDob.setText(String.valueOf((craCustomer.calculateAge())));
         getSinNumber.setText(String.valueOf(craCustomer.sinNumber));
         getTotaltaxammount.setText(String.valueOf(Float.valueOf((float)tempttti)));

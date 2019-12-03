@@ -12,6 +12,7 @@ public class CRACustomer implements Parcelable {
     public double grossIncome;
     public double rrspCont;
     public   String gender;
+    public  double maxrssp;
 
     public  double tti;
 
@@ -185,6 +186,7 @@ public class CRACustomer implements Parcelable {
         double rrsp_max;
 
         rrsp_max = (grossIncome * .18);
+        maxrssp = rrsp_max;
         if (rrsp_max > rrspCont) {
             double carry_forwaded_rrsp = rrsp_max - rrspCont;
 
@@ -199,8 +201,8 @@ public class CRACustomer implements Parcelable {
 
     public Double total_taxable_amount(double rrspCont, double EI, double cpp)
     {
-
-        tti = grossIncome - Double.valueOf(cpp +rrspAmount(grossIncome) + EI(grossIncome));
+        System.out.println("rrsp in tti"+rrspAmount(grossIncome));
+        tti = grossIncome - (cpp +rrspCont + EI);
         return tti;
     }
 
@@ -211,13 +213,13 @@ public float fedraltax(Double grossIncome)
 {
     double FT = 0.0;
 
-    if(grossIncome > 0.0 && grossIncome <= 12096)
+    if(grossIncome > 0.0 && grossIncome <= 12069)
     {
         FT = 0.0;
     }
-    else if(grossIncome >= 12096.1 && grossIncome <= 47630)
+    else if(grossIncome >= 12069.1 && grossIncome <= 47630)
     {
-        grossIncome = grossIncome-12096;
+        grossIncome = grossIncome-12069;
         FT = grossIncome * .15;
     }
     else if(grossIncome >= 47630.01 && grossIncome <= 95259)
@@ -238,7 +240,7 @@ public float fedraltax(Double grossIncome)
 
         FT = backtax + backtax2 + temptax;
     }
-    else if(grossIncome >= 147667.01 && grossIncome <= 220000.0)
+    else if(grossIncome >= 147667.01 && grossIncome <= 210371)
     {
 
         grossIncome = grossIncome-147667.00;
