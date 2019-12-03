@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">CanadaTaxCalculation</string>
+
+    <string-array name="genderarray">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Others</item>
+    </string-array>
+</resources>
